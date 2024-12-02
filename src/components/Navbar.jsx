@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 export const Navbar = () => {
   return (
     <div className="navbar bg-base-100">
@@ -24,10 +26,10 @@ export const Navbar = () => {
             className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow"
           >
             <li>
-              <a href="/">Accueil</a>
+              <Link to={"/"}>Accueil</Link>
             </li>
             <li>
-              <a href="/products">Produits</a>
+              <Link to={"/use-state"}>Le hook useState()</Link>
             </li>
           </ul>
         </div>
@@ -35,10 +37,7 @@ export const Navbar = () => {
       <div className="navbar-center">
         <ul>
           <li>
-            <a href="/">Accueil</a>
-          </li>
-          <li>
-            <a href="/products">Produits</a>
+            <Link to={"/"}>Accueil</Link>
           </li>
         </ul>
       </div>

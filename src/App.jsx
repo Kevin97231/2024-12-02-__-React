@@ -2,18 +2,19 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "./App.css";
 import JsxTheorie from "./view/JsxTheorie";
 import { Navbar } from "./components/Navbar";
+import { HookUseState } from "./view/HookUseState";
 
 function App() {
   return (
-    <>
-      <Navbar />
+    <section>
       <BrowserRouter>
+        <Navbar />
         <Routes>
           <Route path="/" element={<JsxTheorie />} />
-          <Route path="/products" element={<>Page product</>} />
+          <Route path="/use-state" element={<HookUseState />} />
         </Routes>
       </BrowserRouter>
-    </>
+    </section>
   );
 }
 
