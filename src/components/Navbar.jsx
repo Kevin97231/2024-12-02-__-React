@@ -40,6 +40,12 @@ export const Navbar = () => {
             <li>
               <Link to={"/exercice"}>Exercice</Link>
             </li>
+            <li>
+              <Link to={"/use-effect"}>Le hook useEffect()</Link>
+            </li>
+            <li>
+              <Link to={"/requete"}>Les requetes aux API</Link>
+            </li>
           </ul>
         </div>
       </div>

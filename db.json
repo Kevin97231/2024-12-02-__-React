@@ -1,0 +1,95 @@
+{
+    "products": [
+        {
+            "name": "Zucchini",
+            "price": "10",
+            "number": "10",
+            "category": "Vegetables",
+            "id": "f774"
+        },
+        {
+            "name": "goyave",
+            "price": "10",
+            "number": "2",
+            "category": "goyave",
+            "id": "4e79"
+        },
+        {
+            "name": "mangue",
+            "price": "2",
+            "number": "15",
+            "category": "Fruits",
+            "id": "0d1c"
+        },
+        {
+            "name": "mango",
+            "price": "7",
+            "number": "5",
+            "category": "Fruits",
+            "id": "b5c1"
+        },
+        {
+            "id": "7e0d",
+            "category": "Fruits",
+            "name": "TestNumber",
+            "number": 15,
+            "price": "2"
+        },
+        {
+            "id": "b9cb",
+            "category": "Fruits",
+            "name": "TestNumber",
+            "number": 15,
+            "price": "2"
+        },
+        {
+            "id": "24e4",
+            "category": "Vegetables",
+            "name": "Banane",
+            "number": 15,
+            "price": 1.2
+        },
+        {
+            "name": "Bananeee",
+            "price": "1",
+            "number": 15,
+            "category": "Vegetables",
+            "id": "a564"
+        },
+        {
+            "name": "Pomme",
+            "price": "1",
+            "number": "15",
+            "category": "Fruits",
+            "id": "0095"
+        },
+        {
+            "name": "Zucchini",
+            "price": "8",
+            "number": "6",
+            "category": "Vegetables",
+            "id": "43bf"
+        },
+        {
+            "id": "13c7",
+            "category": "Vegetables",
+            "name": "Zucchini",
+            "number": 7,
+            "price": null
+        },
+        {
+            "id": "6227",
+            "category": "test",
+            "name": "Pomme",
+            "number": "4",
+            "price": "2"
+        },
+        {
+            "id": "4ec8",
+            "category": "Fruits",
+            "name": "Ananas",
+            "price": "2",
+            "number": null
+        }
+    ]
+}
