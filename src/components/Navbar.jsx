@@ -46,6 +46,12 @@ export const Navbar = () => {
             <li>
               <Link to={"/requete"}>Les requetes aux API</Link>
             </li>
+            <li>
+              <Link to={"/hook-perso"}>Les hooks personnalisés</Link>
+            </li>
+            <li>
+              <Link to={"/exercice-api"}>Exercice API</Link>
+            </li>
           </ul>
         </div>
       </div>
