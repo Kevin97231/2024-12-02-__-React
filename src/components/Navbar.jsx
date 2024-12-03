@@ -37,6 +37,9 @@ export const Navbar = () => {
             <li>
               <Link to={"/formulaire"}>Les formulaires</Link>
             </li>
+            <li>
+              <Link to={"/exercice"}>Exercice</Link>
+            </li>
           </ul>
         </div>
       </div>
