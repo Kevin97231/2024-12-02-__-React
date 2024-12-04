@@ -4,43 +4,28 @@ import axios from "axios";
 export const useAxios = () => {
   let baseUrl = "http://localhost:3001/products";
 
-  const get = () => {
-    return axios
-      .get(baseUrl)
-      .then((response) => response.data)
-      .catch((err) => {
-        throw err;
-      });
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
+
+  const handleRequest = async (requestFunction, ...args) => {
+    setLoading(true);
+    try {
+      const response = await requestFunction(...args);
+      setLoading(false);
+    } catch (err) {
+      setLoading(false);
+      setError(err);
+      throw err;
+    }
   };
 
-  const remove = (id) => {
-    const urlRemove = `${baseUrl}/${id}`;
-    return axios
-      .delete(urlRemove)
-      .then((response) => response.data)
-      .catch((err) => {
-        throw err;
-      });
-  };
+  const get = () => handleRequest(axios.get, baseUrl);
 
-  const put = (id, data) => {
-    const urlPut = `${baseUrl}/${id}`;
-    return axios
-      .put(urlPut, data)
-      .then((response) => response.data)
-      .catch((err) => {
-        throw err;
-      });
-  };
+  const remove = (id) => handleRequest(axios.delete, `${baseUrl}/${id}`);
 
-  const post = (data) => {
-    return axios
-      .post(baseUrl, data)
-      .then((response) => response.data)
-      .catch((err) => {
-        throw err;
-      });
-  };
+  const put = (id, data) => handleRequest(axios.put, `${baseUrl}/${id}`, data);
 
-  return { get, remove, put, post };
+  const post = (data) => handleRequest(axios.post, data);
+
+  return { get, remove, put, post, loading, error };
 };
