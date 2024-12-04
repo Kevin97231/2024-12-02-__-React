@@ -50,6 +50,9 @@ export const Navbar = () => {
               <Link to={"/hook-perso"}>Les hooks personnalisés</Link>
             </li>
             <li>
+              <Link to={"/use-memo"}>Le hook useMemo()</Link>
+            </li>
+            <li>
               <Link to={"/exercice-api"}>Exercice API</Link>
             </li>
           </ul>

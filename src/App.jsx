@@ -10,6 +10,7 @@ import { HookUseEffect } from "./view/HookUseEffect";
 import { RequeteApi } from "./view/RequeteApi";
 import { HookPerso } from "./view/HookPerso";
 import { ExerciceApi } from "./view/ExerciceApi";
+import { HookUseMemo } from "./view/HookUseMemo";
 
 function App() {
   return (
@@ -25,7 +26,8 @@ function App() {
           <Route path="/use-effect" element={<HookUseEffect />} />
           <Route path="/requete" element={<RequeteApi />} />
           <Route path="/hook-perso" element={<HookPerso />} />
-          <Route path="exercice-api" element={<ExerciceApi />} />
+          <Route path="/exercice-api" element={<ExerciceApi />} />
+          <Route path="/use-memo" element={<HookUseMemo />} />
         </Routes>
       </BrowserRouter>
     </section>
