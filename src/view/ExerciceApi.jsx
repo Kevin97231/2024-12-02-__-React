@@ -1,46 +1,57 @@
+import { useState } from "react";
 import { ConsigneApi } from "../components/ConsigneApi";
+import { ProductTable } from "../components/ExerciceApi/ProductTable";
+import { useAxios } from "../hooks/useAxios";
+import { useEffect } from "react";
+import { FormProduct } from "../components/FormProduct";
 
 export const ExerciceApi = () => {
+  const { get, remove, put, post } = useAxios();
+
+  const [products, setProducts] = useState([]);
+
+  const [displayAddForm, setDisplayAddForm] = useState(false);
+
+  useEffect(() => {
+    get().then((response) => setProducts(response));
+  }, []);
+
+  const deleteroduct = (product) => {
+    remove(product.id).then((response) =>
+      setProducts((prevProducts) =>
+        prevProducts.filter((productFilter) => response.id !== productFilter.id)
+      )
+    );
+  };
+
+  const updateProduct = (id, data) => {
+    put(id, data).then((response) =>
+      setProducts((prevProducts) =>
+        prevProducts.map((productMap) =>
+          productMap.id === response.id ? { ...response } : productMap
+        )
+      )
+    );
+  };
+
+  const addProduct = (product) => {
+    post(product).then((response) =>
+      setProducts((prevProducts) => [...prevProducts, response])
+    );
+    setDisplayAddForm(false);
+  };
+
   return (
     <section>
       <h1>Exercice API</h1>
       <ConsigneApi />
-      <div className="p-5 border w-fit">
-        1 - Créer un tableau qui contient l'ensemble des produits en BDD.
-        <br />
-        2 - Créer un bouton permettant d'afficher un formulaire pour rajouter un
-        produit (réfléchir comment afficher le formulaire. Peut etre une div qui
-        s'affiche à coté / en dessous, un pop-up ...)
-        <br />
-        3- Ajouter, sur chacune des lignes du tableau:
-        <ul>
-          <li>
-            un bouton permettant de supprimer le produit de la ligne
-            correspondante
-          </li>
-          <li>
-            un bouton permettant de modifier le produit de la ligne
-            correspondante. (Réfléchir comment afficher le formulaire. Peut etre
-            une div qui s'affiche à coté / en dessous, un pop-up ...)
-          </li>
-        </ul>
-        <br />4 - Créer un hook personnalisé 'axios' qui retourne:
-        <ul>
-          <li>
-            loading: une variable crée avec un useState() dans le hook. Sera à
-            false quand pas de chargement, et à true pendant le chargement (le
-            temps que l'on reçoive la réponse du serveur)
-          </li>
-          <li>
-            error: une variable crée avec un useState() dans le hook. Sera la
-            valeur de l'erreur 'attrapée' dans le .catch
-          </li>
-          <li>get: une fonction permettant de faire un 'get'</li>
-          <li>post: une fonction permettant de faire un 'post'</li>
-          <li>put: une fonction permettant de faire un 'put'</li>
-          <li>remove: une fonction permettant de faire un 'remove'</li>
-        </ul>
-      </div>
+      <ProductTable
+        products={products}
+        remove={deleteroduct}
+        updateProduct={updateProduct}
+      />
+      <button onClick={() => setDisplayAddForm(true)}>Ajouter</button>
+      {displayAddForm && <FormProduct submitMethod={addProduct} />}
     </section>
   );
 };
